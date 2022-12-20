@@ -25,9 +25,7 @@ class _HomeState extends State<Home> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: "Enter Your Name",
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(100))
-                      )
+                      focusedBorder: OutlineInputBorder()
                     ),
                   ),
                 ),
@@ -64,38 +62,47 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-        )
+         )
     );
   }
-  Widget Name(dynamic name,)
+  Widget Name(dynamic name)
   {
     return Column(
       children: [
-        Container(
-          height: 50,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("$name"),
-              InkWell(onTap: () {
-                setState(() {
-                  l1.removeAt(0);
-                });
-              },
-                  child: Icon(
-                      Icons.delete
-                  )
-              ),
-            ],
+        Padding(
+          padding: const EdgeInsets.only(left: 10,right: 10,top: 5),
+          child: Container(
+            height: 50,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Text("$name"),
+                ),
+                InkWell(onTap: () {
+                  setState(() {
+                    l1.removeAt(0);
+                  });
+                },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: Icon(
+                          Icons.delete
+                      ),
+                    )
+                ),
+              ],
+            ),
           ),
         ),
         SizedBox(
-          height: 20,
+          height: 10,
         )
       ],
     );
